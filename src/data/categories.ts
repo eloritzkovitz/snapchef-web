@@ -11,10 +11,11 @@ const categories = [
     "Pasta & Noodles",
     "Dairy",
     "Meat & Poultry",
+    "Meat Alternatives",   
     "Fish & Seafood",
     "Condiments & Sauces",
     "Canned Food",
-    "Beverages",
+    "Beverages",    
   ];
   
   export default categories;
