@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -10,10 +11,11 @@ export default function Navbar() {
           className="flex items-center space-x-3"
           style={{ fontFamily: "'Berlin Sans FB Demi Bold', sans-serif" }}
         >
-          <img
+          <Image
             src="/icon.png"
             alt="SnapChef Logo"
-            className="h-12 w-12"
+            width={48}
+            height={48}
           />
           <span className="text-4xl font-bold">SnapChef</span>
         </Link>
