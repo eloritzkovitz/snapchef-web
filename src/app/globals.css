@@ -19,6 +19,13 @@
   }
 }
 
+@font-face {
+  font-family: 'Berlin Sans FB Demi Bold';
+  src: url('/fonts/BerlinSansFBDemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

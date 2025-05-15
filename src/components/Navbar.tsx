@@ -5,9 +5,13 @@ export default function Navbar() {
     <nav className="bg-[#f47851] text-white p-4 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Navbar Banner */}
-        <Link href="/" className="flex items-center space-x-3">
+        <Link
+          href="/"
+          className="flex items-center space-x-3"
+          style={{ fontFamily: "'Berlin Sans FB Demi Bold', sans-serif" }}
+        >
           <img
-            src="/icon_white.png"
+            src="/icon.png"
             alt="SnapChef Logo"
             className="h-12 w-12"
           />
@@ -18,6 +22,7 @@ export default function Navbar() {
             <Link
               href="/api"
               className="hover:text-[#ffb89d] transition-colors"
+              style={{ fontFamily: "'Berlin Sans FB Demi Bold', sans-serif" }}
             >
               API
             </Link>
@@ -26,6 +31,7 @@ export default function Navbar() {
             <Link
               href="/about"
               className="hover:text-[#ffb89d] transition-colors"
+              style={{ fontFamily: "'Berlin Sans FB Demi Bold', sans-serif" }}
             >
               About
             </Link>
@@ -34,6 +40,7 @@ export default function Navbar() {
             <Link
               href="/login"
               className="hover:text-[#ffb89d] transition-colors"
+              style={{ fontFamily: "'Berlin Sans FB Demi Bold', sans-serif" }}
             >
               Log In
             </Link>
