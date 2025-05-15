@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export const metadata = {
   title: "Home - SnapChef",
   description: "Welcome to SnapChef - Manage your ingredients and recipes with ease.",
