@@ -7,21 +7,9 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <h1 className="text-2xl font-bold">Welcome to SnapChef</h1>
-        <p className="text-center sm:text-left">
-          Manage your ingredients with ease.
-        </p>
-
-        <div className="flex flex-col gap-4 items-center sm:items-start">
-          <Link
-            href="/ingredients"
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-          >
-            View Ingredients
-          </Link>
-        </div>
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow flex items-center justify-center">
+        <h2 className="text-2xl font-bold">Welcome to SnapChef</h2>
       </main>
     </div>
   );
