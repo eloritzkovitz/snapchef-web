@@ -4,6 +4,7 @@ interface Ingredient {
   id: string;
   name: string;
   category: string;
+  imageURL: string;
 }
 
 interface EditIngredientFormProps {
@@ -47,6 +48,7 @@ const EditIngredientForm: React.FC<EditIngredientFormProps> = ({
           body: JSON.stringify({
             name: updatedIngredient.name,
             category: updatedIngredient.category,
+            imageURL: updatedIngredient.imageURL,
           }),
         }
       );
@@ -54,7 +56,9 @@ const EditIngredientForm: React.FC<EditIngredientFormProps> = ({
       if (!response.ok) {
         const errorResponse = await response.json();
         console.error("Backend error response:", errorResponse);
-        throw new Error(errorResponse.message || "Failed to update ingredient.");
+        throw new Error(
+          errorResponse.message || "Failed to update ingredient."
+        );
       }
 
       const editedIngredient: Ingredient = await response.json();
@@ -98,6 +102,17 @@ const EditIngredientForm: React.FC<EditIngredientFormProps> = ({
             </option>
           ))}
         </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1">Image URL</label>
+        <input
+          type="text"
+          name="imageURL"
+          value={updatedIngredient.imageURL || ""}
+          onChange={handleChange}
+          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="/images/placeholder_image.png"
+        />
       </div>
       <div className="flex justify-end">
         <button

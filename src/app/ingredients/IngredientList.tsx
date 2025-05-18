@@ -2,7 +2,16 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { ArrowLeftIcon, ArrowPathIcon, ChevronDownIcon, XMarkIcon, MagnifyingGlassIcon, PlusIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
+import {
+  ArrowLeftIcon,
+  ArrowPathIcon,
+  ChevronDownIcon,
+  XMarkIcon,
+  MagnifyingGlassIcon,
+  PlusIcon,
+  PencilIcon,
+  TrashIcon,
+} from "@heroicons/react/24/solid";
 import categories from "../../data/categories";
 import AddIngredientForm from "./AddIngredientForm";
 import EditIngredientForm from "./EditIngredientForm";
@@ -12,22 +21,30 @@ interface Ingredient {
   id: string;
   name: string;
   category: string;
+  imageURL: string;
 }
 
 const ITEMS_PER_PAGE = 20;
 
 const IngredientList: React.FC = () => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
-  const [filteredIngredients, setFilteredIngredients] = useState<Ingredient[]>([]);
-  const [visibleIngredients, setVisibleIngredients] = useState<Ingredient[]>([]);
+  const [filteredIngredients, setFilteredIngredients] = useState<Ingredient[]>(
+    []
+  );
+  const [visibleIngredients, setVisibleIngredients] = useState<Ingredient[]>(
+    []
+  );
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [sortField, setSortField] = useState<keyof Ingredient | null>(null);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
-  const [ingredientToEdit, setIngredientToEdit] = useState<Ingredient | null>(null);
-  const [ingredientToDelete, setIngredientToDelete] = useState<Ingredient | null>(null);
+  const [ingredientToEdit, setIngredientToEdit] = useState<Ingredient | null>(
+    null
+  );
+  const [ingredientToDelete, setIngredientToDelete] =
+    useState<Ingredient | null>(null);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const loaderRef = useRef<HTMLDivElement | null>(null);
@@ -208,6 +225,8 @@ const IngredientList: React.FC = () => {
         <table className="w-full border-collapse border border-gray-200 table-fixed">
           <thead>
             <tr className="bg-gray-100">
+              <th className="p-3 text-left w-1/12">Image</th>
+
               <th className="p-3 text-left w-1/4">Item ID</th>
               <th
                 className="p-3 text-left cursor-pointer w-1/2"
@@ -231,6 +250,20 @@ const IngredientList: React.FC = () => {
                 key={ingredient.id}
                 className="border-t border-gray-200 hover:bg-gray-50"
               >
+                <td className="p-3 w-1/12">
+                  <img
+                    src={
+                      ingredient.imageURL
+                        ? `${ingredient.imageURL}${
+                            ingredient.imageURL.includes("?") ? "&" : "?"
+                          }t=${ingredient.id}`
+                        : "/images/placeholder_image.png"
+                    }
+                    alt={ingredient.name}
+                    className="w-full h-10 object-contain rounded bg-white"
+                    style={{ maxWidth: "40px", maxHeight: "40px" }}
+                  />
+                </td>
                 <td className="p-3 w-1/4">{ingredient.id}</td>
                 <td className="p-3 w-1/2">{ingredient.name}</td>
                 <td className="p-3 w-1/4">{ingredient.category}</td>

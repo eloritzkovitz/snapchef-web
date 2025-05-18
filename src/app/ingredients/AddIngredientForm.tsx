@@ -3,6 +3,7 @@ import React, { useState } from "react";
 interface NewIngredient {
   name: string;
   category: string;
+  imageURL: string;
 }
 
 interface Ingredient extends NewIngredient {
@@ -23,6 +24,7 @@ const AddIngredientForm: React.FC<AddIngredientFormProps> = ({
   const [ingredient, setIngredient] = useState<NewIngredient>({
     name: "",
     category: categories[0] || "",
+    imageURL: "",
   });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
@@ -104,6 +106,17 @@ const AddIngredientForm: React.FC<AddIngredientFormProps> = ({
             </option>
           ))}
         </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1">Image URL</label>
+        <input
+          type="text"
+          name="imageURL"
+          value={ingredient.imageURL || ""}
+          onChange={handleChange}
+          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="images/placeholder_image.png"
+        />
       </div>
       <div className="flex justify-end">
         <button
