@@ -1,0 +1,257 @@
+:root {
+  --primary: #ff7a59;
+  --primary-light: #fcc7b6;
+  --primary-dark: #e86a4d;
+}
+
+.feature-carousel {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.carousel-content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--primary-light);
+  border-radius: 25px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.carousel-item.animating {
+  opacity: 0.5;
+  transform: scale(0.98);
+}
+
+.feature-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* אפקט הגדלה בעת מעבר עכבר */
+.image-hover-wrapper {
+  overflow: hidden;
+  /* התיקון החשוב: וידוא שאין border-radius: 50% בשום מקום */
+  border-radius: 12px !important; /* שימוש ב-!important כדי לוודא שזה יגבר על כל הגדרה אחרת */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: 4px solid white;
+}
+
+.image-hover-wrapper:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.feature-image {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  /* וידוא שאין border-radius: 50% בשום מקום */
+  border-radius: 8px !important; /* שימוש ב-!important כדי לוודא שזה יגבר על כל הגדרה אחרת */
+  transition: all 0.5s ease;
+}
+
+.image-hover-wrapper:hover .feature-image {
+  transform: scale(1.08);
+}
+
+.feature-details {
+  flex: 1;
+  text-align: left;
+  padding: 1rem;
+}
+
+.feature-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.feature-description {
+  color: #333;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.carousel-arrow {
+  background-color: white;
+  color: var(--primary);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-arrow-left {
+  left: -20px;
+}
+
+.carousel-arrow-right {
+  right: -20px;
+}
+
+/* סגנונות למיניאטורות */
+.carousel-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 2rem;
+}
+
+.carousel-thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.carousel-thumbnail:hover {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+.carousel-thumbnail.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.carousel-thumbnail.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.thumbnail-wrapper {
+  overflow: hidden;
+  /* התיקון החשוב: וידוא שאין border-radius: 50% בשום מקום */
+  border-radius: 8px !important; /* שימוש ב-!important כדי לוודא שזה יגבר על כל הגדרה אחרת */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.thumbnail-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  /* התיקון החשוב: וידוא שאין border-radius: 50% בשום מקום */
+  border-radius: 6px !important; /* שימוש ב-!important כדי לוודא שזה יגבר על כל הגדרה אחרת */
+  transition: all 0.3s ease;
+}
+
+.carousel-thumbnail:hover .thumbnail-wrapper {
+  transform: scale(1.08);
+}
+
+.carousel-thumbnail.active .thumbnail-wrapper {
+  border-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail-title {
+  margin-top: 6px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 1024px) {
+  .carousel-arrow-left {
+    left: 0;
+  }
+  
+  .carousel-arrow-right {
+    right: 0;
+  }
+  
+  .feature-image {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .feature-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .feature-details {
+    text-align: center;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  
+  .feature-image {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .feature-title {
+    font-size: 1.5rem;
+  }
+  
+  .carousel-thumbnails {
+    gap: 10px;
+  }
+  
+  .thumbnail-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .thumbnail-title {
+    display: none;
+  }
+}
