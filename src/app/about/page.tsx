@@ -26,9 +26,8 @@ export default function About() {
               SnapChef was created to solve a common problem: figuring out what to cook with the ingredients you already have at home. Our mission is to reduce food waste, save money, and make cooking more accessible and enjoyable for everyone.
             </p>
             <p className="about-text">
-              By combining advanced image recognition technology with AI-powered recipe generation, we've built an app that helps you create delicious meals from whatever is in your fridge or pantry.
-            </p>
-            
+              By combining advanced image recognition technology with AI-powered recipe generation, we&apos;ve built an app that helps you create delicious meals from whatever is in your fridge or pantry.
+            </p>           
             {/* Team Section */}
             <div className="team-section">
               <h2 className="about-section-title">Meet Our Team</h2>

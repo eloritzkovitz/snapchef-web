@@ -4,6 +4,7 @@ import './ApiPage.css';
 import { useState } from 'react';
 import { endpoints as allEndpoints } from './endpoints';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface Endpoint {
   method: string;
   path: string;
@@ -20,6 +21,7 @@ interface ResponseType {
   description: string;
   schema?: any;
 }
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const apiTags = [
   { name: 'Auth', description: 'API for managing user authentication' },
