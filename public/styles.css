@@ -1,0 +1,204 @@
+/* SnapChef Landing Page Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    background-image: url('background-pattern.png');
+    background-repeat: repeat;
+    background-size: 500px;
+    background-color: #ff7a59; /* main coral/orange color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* Header */
+header {
+    background-color: #ff7a59; /* Same as body background, no transparency */
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-weight: 300;
+    color: white;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 1.5rem auto 0;
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background-color: white;
+    color: #ff7a59;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Features Section */
+.features {
+    padding: 5rem 0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.features-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fcc7b6;
+    border-radius: 25px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.screenshot {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.screenshot:hover {
+    transform: scale(1.05);
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.feature-description {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Download Section */
+.download-section {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.app-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.app-badge {
+    height: 50px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+}

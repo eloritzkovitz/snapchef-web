@@ -1,51 +1,52 @@
-import Link from "next/link";
-import Image from "next/image";
+import AppLink from './AppLink';
+import Image from 'next/image';
 
 export default function Navbar() {
   return (
-    <nav className="bg-[#f47851] text-white p-4 sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Navbar Banner */}
-        <Link
-          href="/"
-          className="flex items-center space-x-3"
-          style={{ fontFamily: "'Berlin Sans FB Demi Bold', sans-serif" }}
-        >
+    <nav className="navbar">
+      <div className="container nav-container">
+        <div className="logo-nav">
           <Image
-            src="/icon.png"
+            src="/images/icon.png"
             alt="SnapChef Logo"
             width={48}
             height={48}
+            className="nav-logo"
           />
-          <span className="text-4xl font-bold">SnapChef</span>
-        </Link>
-        <ul className="flex space-x-6">
+          <span className="nav-brand">SnapChef</span>
+        </div>
+        <ul className="nav-links">
           <li>
-            <Link
+            <AppLink
+              href="/"
+              className="nav-link"
+            >
+              Home
+            </AppLink>
+          </li>
+          <li>
+            <AppLink
               href="/api"
-              className="hover:text-[#ffb89d] transition-colors"
-              style={{ fontFamily: "'Berlin Sans FB Demi Bold', sans-serif" }}
+              className="nav-link"
             >
               API
-            </Link>
+            </AppLink>
           </li>
           <li>
-            <Link
+            <AppLink
               href="/about"
-              className="hover:text-[#ffb89d] transition-colors"
-              style={{ fontFamily: "'Berlin Sans FB Demi Bold', sans-serif" }}
+              className="nav-link"
             >
               About
-            </Link>
+            </AppLink>
           </li>
           <li>
-            <Link
-              href="/login"
-              className="hover:text-[#ffb89d] transition-colors"
-              style={{ fontFamily: "'Berlin Sans FB Demi Bold', sans-serif" }}
+            <AppLink
+              href="/ingredients"
+              className="nav-link"
             >
-              Log In
-            </Link>
+              Ingredients
+            </AppLink>
           </li>
         </ul>
       </div>
