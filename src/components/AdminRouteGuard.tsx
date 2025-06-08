@@ -48,7 +48,7 @@ export default function AdminRouteGuard({ children }: AdminRouteGuardProps) {
           </div>
           <h1 className="mt-6 text-2xl font-bold text-gray-900">Access Denied</h1>
           <p className="mt-2 text-gray-600">
-            You don't have administrator privileges to access this page.
+            You don&apos;t have administrator privileges to access this page.
           </p>
           <div className="mt-6">
             <button
