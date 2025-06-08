@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../../contexts/AuthContext';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -37,7 +38,7 @@ export default function LoginPage() {
       } else {
         setError('Invalid email or password');
       }
-    } catch (error) {
+    } catch {
       setError('Login failed. Please try again.');
     } finally {
       setIsLoading(false);
@@ -126,10 +127,10 @@ export default function LoginPage() {
 
           <div className="text-center">
             <p className="text-sm text-gray-600">
-              Don't have admin access? Continue to the{' '}
-              <a href="/" className="font-medium text-orange-600 hover:text-orange-500">
+              Don&apos;t have admin access? Continue to the{' '}
+              <Link href="/" className="font-medium text-orange-600 hover:text-orange-500">
                 main website
-              </a>
+              </Link>
             </p>
           </div>
         </form>
