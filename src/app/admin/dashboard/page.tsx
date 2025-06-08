@@ -135,7 +135,7 @@ export default function AdminDashboard() {
             ].map((tab) => (
               <button
                 key={tab.key}
-                onClick={() => setActiveTab(tab.key as any)}
+                onClick={() => setActiveTab(tab.key as 'overview' | 'users' | 'analytics')}
                 className={`py-4 px-1 border-b-2 font-medium text-sm ${
                   activeTab === tab.key
                     ? 'border-orange-500 text-orange-600'
