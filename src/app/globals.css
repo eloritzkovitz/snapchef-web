@@ -676,3 +676,204 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* עיצוב משופר לקרוסלת האפליקציה */
+.app-showcase-carousel {
+  margin: 3rem 0;
+}
+
+/* עיצוב משופר לחברי הצוות */
+.team-members-enhanced {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.team-member-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 122, 89, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-member-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.team-member-card:hover::before {
+  transform: scaleX(1);
+}
+
+.team-member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 2px rgba(255, 122, 89, 0.2);
+}
+
+/* קונטיינר תמונת הפרופיל */
+.profile-image-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+}
+
+.profile-image-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, var(--primary), var(--primary-dark), var(--primary), var(--primary-light));
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.profile-image-container:hover::before {
+  opacity: 1;
+}
+
+/* תמונת הפרופיל */
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.profile-image-container:hover .profile-image {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Placeholder עבור ADI */
+.profile-image-container.placeholder::before {
+  background: linear-gradient(45deg, #6c757d, #495057, #6c757d, #adb5bd);
+}
+
+.profile-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+  border: 4px solid white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.profile-image-container.placeholder:hover .profile-placeholder {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* שמות ותפקידים */
+.member-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  background: linear-gradient(135deg, #2c3e50 0%, var(--primary-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.member-role {
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* התאמות למסכים קטנים */
+@media (max-width: 768px) {
+  .team-members-enhanced {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .team-member-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .profile-image-container,
+  .profile-image,
+  .profile-placeholder {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .profile-placeholder {
+    font-size: 1.5rem;
+  }
+  
+  .member-name {
+    font-size: 1.2rem;
+  }
+  
+  .member-role {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-members-enhanced {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .profile-image-container,
+  .profile-image,
+  .profile-placeholder {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .profile-placeholder {
+    font-size: 1.3rem;
+  }
+  
+  .member-name {
+    font-size: 1.1rem;
+  }
+  
+  .member-role {
+    font-size: 0.8rem;
+  }
+}
