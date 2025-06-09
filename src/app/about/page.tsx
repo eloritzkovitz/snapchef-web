@@ -1,10 +1,10 @@
-
 export const metadata = {
   title: "About - SnapChef",
   description: "Learn more about the SnapChef team and our mission.",
 };
 
 import Image from 'next/image';
+import AboutCarousel from '../../components/AboutCarousel';
 
 export default function About() {
   return (
@@ -27,29 +27,68 @@ export default function About() {
             </p>
             <p className="about-text">
               By combining advanced image recognition technology with AI-powered recipe generation, we&apos;ve built an app that helps you create delicious meals from whatever is in your fridge or pantry.
-            </p>           
-            {/* Team Section */}
+            </p>
+            
+            {/* App Screenshots Carousel */}
+            <div className="app-showcase-carousel">
+              <h2 className="about-section-title">See SnapChef in Action</h2>
+              <AboutCarousel />
+            </div>
+            
+            {/* Team Section - Enhanced */}
             <div className="team-section">
               <h2 className="about-section-title">Meet Our Team</h2>
-              <div className="team-members">
-                <div className="team-member">
+              <div className="team-members-enhanced">
+                <div className="team-member-card">
+                  <div className="profile-image-container">
+                    <Image
+                      src="/images/elor_profile.jpg"
+                      alt="Elor Itzkovitz"
+                      width={100}
+                      height={100}
+                      className="profile-image"
+                    />
+                  </div>
                   <h3 className="member-name">Elor Itzkovitz</h3>
+                  <p className="member-role">Full Stack Developer</p>
                 </div>
                 
-                <div className="team-member">
+                <div className="team-member-card">
+                  <div className="profile-image-container">
+                    <Image
+                      src="/images/yuval_profile.jpg"
+                      alt="Yuval Lavi"
+                      width={100}
+                      height={100}
+                      className="profile-image"
+                    />
+                  </div>
                   <h3 className="member-name">Yuval Lavi</h3>
+                  <p className="member-role">Mobile Developer</p>
                 </div>
                 
-                <div className="team-member">
-               
+                <div className="team-member-card">
+                  <div className="profile-image-container">
+                    <Image
+                      src="/images/yonatan_profile.jpg"
+                      alt="Yonatan Cohen"
+                      width={100}
+                      height={100}
+                      className="profile-image"
+                    />
+                  </div>
                   <h3 className="member-name">Yonatan Cohen</h3>
-                  
+                  <p className="member-role">AI Developer</p>
                 </div>
                 
-                <div className="team-member">
-                  
+                <div className="team-member-card">
+                  <div className="profile-image-container placeholder">
+                    <div className="profile-placeholder">
+                      <span>A</span>
+                    </div>
+                  </div>
                   <h3 className="member-name">Adi Cahal</h3>
-                
+                  <p className="member-role">Backend Developer</p>
                 </div>
               </div>
             </div>
