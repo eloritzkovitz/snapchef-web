@@ -26,34 +26,34 @@ const ChevronRight = () => (
   </svg>
 );
 
-// תמונות האפליקציה עם תיאורים
+// About Carousel Component
 const appScreenshots: AppScreenshot[] = [
   {
     id: 1,
     title: "Secure Login",
     description: "Quick and secure authentication to protect your data",
-    image: "/images/login_screen.jpg",
+    image: "/images/screenshots/login_screen.jpg",
     thumbnail: "Login"
   },
   {
     id: 2,
     title: "Personal Profile",
     description: "Manage your preferences and dietary requirements",
-    image: "/images/profile_screen.jpg",
+    image: "/images/screenshots/profile_screen.jpg",
     thumbnail: "Profile"
   },
   {
     id: 3,
     title: "Fridge Management",
     description: "Track your ingredients easily with our intuitive interface",
-    image: "/images/fridge_screen_1.jpg",
+    image: "/images/screenshots/fridge_screen_1.jpg",
     thumbnail: "Fridge"
   },
   {
     id: 4,
     title: "Clean Interface", 
     description: "Enjoy our minimalist design that puts functionality first",
-    image: "/images/fridge_screen_2.jpg",
+    image: "/images/screenshots/fridge_screen_2.jpg",
     thumbnail: "Interface"
   }
 ];
@@ -142,7 +142,7 @@ export default function AboutCarousel() {
               <h3 className="about-screenshot-title">{currentScreenshot.title}</h3>
               <p className="about-screenshot-description">{currentScreenshot.description}</p>
               
-              {/* אינדיקטור מספר התמונה */}
+              {/* Screenshot indicator */}
               <div className="about-screenshot-counter">
                 <span className="about-counter-text">
                   {activeIndex + 1} of {appScreenshots.length}
@@ -192,7 +192,7 @@ export default function AboutCarousel() {
         </div>
       </div>
       
-      {/* אינדיקטורים נוספים למסכים קטנים */}
+      {/* Indicators for small screens */}
       <div className="about-carousel-dots">
         {appScreenshots.map((_, index) => (
           <button

@@ -217,8 +217,9 @@
 
 /* קונטיינר מיניאטורות עם גלילה */
 .about-carousel-thumbnails-container {
-  margin-bottom: 2rem;
-  overflow: hidden;
+  margin-bottom: 3rem;
+  overflow: visible;
+  padding-bottom: 20px;
 }
 
 .about-carousel-thumbnails {
@@ -226,7 +227,8 @@
   justify-content: center;
   gap: 20px;
   padding: 0 20px;
-  overflow-x: auto;
+  overflow-x: visible;
+  overflow-y: visible;  
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -280,6 +282,7 @@
   position: relative;
   background: linear-gradient(145deg, #2c3e50, #34495e);
   padding: 3px;
+  margin-top: 20px;  
 }
 
 .about-thumbnail-wrapper::before {

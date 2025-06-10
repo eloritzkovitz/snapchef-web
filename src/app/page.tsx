@@ -58,7 +58,7 @@ export default function Home() {
       {/* Features Section with Carousel */}
       <section className="features">
         <div className="container">
-          <h2 className="features-heading">Enjoy your meal!</h2>
+          <h2 className="features-heading">Our Features</h2>
           <FeatureCarousel />
         </div>
       </section>
