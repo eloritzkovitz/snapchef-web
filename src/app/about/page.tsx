@@ -42,7 +42,7 @@ export default function About() {
                 <div className="team-member-card">
                   <div className="profile-image-container">
                     <Image
-                      src="/images/elor_profile.jpg"
+                      src="/images/about/elor_profile.jpg"
                       alt="Elor Itzkovitz"
                       width={100}
                       height={100}
@@ -50,13 +50,14 @@ export default function About() {
                     />
                   </div>
                   <h3 className="member-name">Elor Itzkovitz</h3>
-                  <p className="member-role">Full Stack Developer</p>
+                  <p className="member-role">The Flavor Infuser</p>
+                  <p className="member-text mt-3">The mastermind behind the app! Whisked together the Android build using Flutter and a dash of Dart. Stirred in the essential API ingredients that bring the whole dish to life.</p>                  
                 </div>
                 
                 <div className="team-member-card">
                   <div className="profile-image-container">
                     <Image
-                      src="/images/yuval_profile.jpg"
+                      src="/images/about/yuval_profile.jpg"
                       alt="Yuval Lavi"
                       width={100}
                       height={100}
@@ -64,13 +65,14 @@ export default function About() {
                     />
                   </div>
                   <h3 className="member-name">Yuval Lavi</h3>
-                  <p className="member-role">Mobile Developer</p>
+                  <p className="member-role">The Visual Plater</p>
+                  <p className="member-text mt-3">Expert in visual plating, this chef cooked the web version of our app with React as the main ingredient - combining components like a true front-end culinary artist.</p>
                 </div>
                 
                 <div className="team-member-card">
                   <div className="profile-image-container">
                     <Image
-                      src="/images/yonatan_profile.jpg"
+                      src="/images/about/yonatan_profile.jpg"
                       alt="Yonatan Cohen"
                       width={100}
                       height={100}
@@ -78,7 +80,8 @@ export default function About() {
                     />
                   </div>
                   <h3 className="member-name">Yonatan Cohen</h3>
-                  <p className="member-role">AI Developer</p>
+                  <p className="member-role"> The Sous-Tech Chef</p>
+                  <p className="member-text mt-3">Handled the secret sauce: our AI! Taste-tested the app using Jest, and managed server deployment to deliver everything fresh from the kitchen.</p>
                 </div>
                 
                 <div className="team-member-card">
@@ -88,7 +91,8 @@ export default function About() {
                     </div>
                   </div>
                   <h3 className="member-name">Adi Cahal</h3>
-                  <p className="member-role">Backend Developer</p>
+                  <p className="member-role">The Pantry Keeper</p>
+                  <p className="member-text mt-3">The one behind our data - be it ingredients, barcodes or scrolls of receipts. With a Cloud Vision, you will recognize them all! Also baked the iOS version!</p>                  
                 </div>
               </div>
             </div>

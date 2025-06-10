@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import './FeatureCarousel.css';
 
-// חיצי הניווט
+// Chevron icons for navigation
 const ChevronLeft = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="15 18 9 12 15 6"></polyline>
@@ -17,62 +17,62 @@ const ChevronRight = () => (
   </svg>
 );
 
-// 8 הפיצרים החדשים עם התמונות שהעלית
+// Features
 const features = [
   {
     id: 1,
     title: "Identify Your Ingredients",
     description: "Take a photo, scan a receipt/barcode, or add them manually!",
-    image: "/images/ingredients.jpg", // תמונה 1 - הירקות והבשר
+    image: "/images/features/ingredients.png",
     thumbnail: "Ingredients"
   },
   {
     id: 2,
     title: "Generate Your Recipe", 
     description: "Fine-tune your creation to match your diet, skills and style!",
-    image: "/images/recipe.jpg", // תמונה 2 - הספגטי המוגש
+    image: "/images/features/recipe.png",
     thumbnail: "Recipe"
   },
   {
     id: 3,
     title: "Manage Your Cookbook",
     description: "Save, view, rate and share recipes with friends!",
-    image: "/images/cookbook.jpg", // תמונה 3 - המטבח עם הכלים
+    image: "/images/features/cookbook.png",
     thumbnail: "Cookbook"
   },
   {
     id: 4,
     title: "Cooking Assistance",
     description: "Follow step-by-step text and voice instructions!",
-    image: "/images/cooking_assistance.jpg", // תמונה 4 - הידיים עם הכלים
+    image: "/images/features/cooking_assistance.png",
     thumbnail: "Assistance"
   },
   {
     id: 5,
     title: "Organize Your Groceries",
     description: "Keep your personalized shopping list in sync!",
-    image: "/images/groceries.jpg", // תמונה 5 - עגלת הקניות
+    image: "/images/features/groceries.png",
     thumbnail: "Groceries"
   },
   {
     id: 6,
     title: "Always Stay Ahead",
     description: "Set reminders for expiring or missing products!",
-    image: "/images/alerts.jpg", // תמונה 6 - המקרר עם השעון
+    image: "/images/features/alerts.png",
     thumbnail: "Alerts"
   },
   {
     id: 7,
-    title: "Professional Chef Experience",
-    description: "Learn from the best with expert techniques and tips!",
-    image: "/images/chef.jpg", // תמונה 7 - השף במטבח
-    thumbnail: "Chef"
+    title: "Offline Functionality",
+    description: "Access your data even when offline, but with limited functionality.",
+    image: "/images/features/offline.png",
+    thumbnail: "Offline"
   },
   {
     id: 8,
     title: "Start Cooking Today!",
-    description: "Access your data even when offline, but with limited functionality.",
-    image: "/images/start_cooking.jpg", // תמונה 8 - השף הישן במטבח
+    description: "",
+    image: "/images/features/chef.png",
     thumbnail: "Start"
   }
 ];
@@ -82,7 +82,7 @@ export default function FeatureCarousel() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   
-  // Auto-advance carousel every 6 seconds (מעט יותר מהר עם יותר תמונות)
+  // Auto-advance carousel every 6 seconds
   useEffect(() => {
     if (isPaused) return;
     
@@ -162,7 +162,7 @@ export default function FeatureCarousel() {
               <h3 className="feature-title">{currentFeature.title}</h3>
               <p className="feature-description">{currentFeature.description}</p>
               
-              {/* אינדיקטור מספר הפיצר */}
+              {/* Feature number indicator */}
               <div className="feature-counter">
                 <span className="counter-text">
                   {activeIndex + 1} of {features.length}
@@ -187,7 +187,7 @@ export default function FeatureCarousel() {
         </button>
       </div>
       
-      {/* Thumbnail navigation - עם גלילה אופקית למסכים קטנים */}
+      {/* Thumbnail navigation */}
       <div className="carousel-thumbnails-container">
         <div className="carousel-thumbnails">
           {features.map((feature, index) => (
@@ -213,7 +213,7 @@ export default function FeatureCarousel() {
         </div>
       </div>
       
-      {/* אינדיקטורים נוספים למסכים קטנים */}
+      {/* Indicators for small screens */}
       <div className="carousel-dots">
         {features.map((_, index) => (
           <button
