@@ -1,15 +1,13 @@
-'use client';
+"use client";
 
 export default function ApiDocsPage() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
-  const apiDocsUrl = `${baseUrl.replace(/\/$/, '')}/api-docs/`;
-
+  
   return (
-    <div style={{ height: '100vh', width: '100%', background: '#fff' }}>
+    <div style={{ height: "100vh", width: "100%", background: "#fff" }}>
       <iframe
-        src={apiDocsUrl}
+        src="https://snapchef.cs.colman.ac.il/api-docs/"
         title="API Documentation"
-        style={{ width: '100%', height: '100%', border: 'none' }}
+        style={{ width: "100%", height: "100%", border: "none" }}
         allowFullScreen
       />
     </div>
