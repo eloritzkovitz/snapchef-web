@@ -15,8 +15,7 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
-  login: (email: string, password: string) => Promise<boolean>;
-  loginWithGoogle?: () => Promise<void>;
+  login: (email: string, password: string) => Promise<boolean>;  
   logout: () => void;
   loading: boolean;
   isAdmin: boolean;
@@ -99,49 +98,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       console.error('Login error:', error);
       return false;
     }
-  };
-
-  // Google Login
-  const loginWithGoogle = async (): Promise<void> => {
-    try {
-      // Open Google OAuth in a new window
-      const googleLoginUrl = `${NEXT_PUBLIC_BASE_URL}/api/auth/google`;
-      const width = 500;
-      const height = 600;
-      const left = window.screenX + (window.outerWidth - width) / 2;
-      const top = window.screenY + (window.outerHeight - height) / 2;
-      const popup = window.open(
-        googleLoginUrl,
-        'GoogleLogin',
-        `width=${width},height=${height},left=${left},top=${top}`
-      );
-
-      if (!popup) throw new Error('Failed to open popup');
-
-      // Listen for a message from the popup with the token
-      const tokenPromise = new Promise<string>((resolve, reject) => {
-        const listener = (event: MessageEvent) => {          
-          if (event.data?.accessToken) {
-            resolve(event.data.accessToken);
-            window.removeEventListener('message', listener);
-            popup.close();
-          }
-        };
-        window.addEventListener('message', listener);        
-        setTimeout(() => {
-          window.removeEventListener('message', listener);
-          reject(new Error('Google login timed out'));
-        }, 60000);
-      });
-
-      const accessToken = await tokenPromise;
-      localStorage.setItem('accessToken', accessToken);
-      await fetchUserData(accessToken);
-    } catch (error) {
-      console.error('Google login error:', error);
-      throw error;
-    }
-  };
+  };  
 
   // Logout
   const logout = () => {
@@ -152,8 +109,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const value = {
     user,
-    login,
-    loginWithGoogle,
+    login,    
     logout,
     loading,
     isAdmin,
