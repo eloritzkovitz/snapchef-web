@@ -45,7 +45,22 @@ export default function LoginPage() {
     } finally {
       setIsLoading(false);
     }
-  };  
+  };
+
+  // Fetch user data to check role
+  const fetchUserData = async (accessToken: string) => {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/me`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (!res.ok) throw new Error("Failed to fetch user data");
+    return res.json();
+  };
 
   // Handle Google response
   const handleGoogleResponse = async (
@@ -67,7 +82,16 @@ export default function LoginPage() {
           const data = await res.json();
           localStorage.setItem("accessToken", data.accessToken);
           localStorage.setItem("refreshToken", data.refreshToken);
-          await login(data.accessToken, data.refreshToken);
+
+          // Fetch user data to check role
+          const userData = await fetchUserData(data.accessToken);
+
+          // Redirect based on role
+          if (userData.role === "admin") {
+            router.push("/admin/dashboard");
+          } else {
+            router.push("/");
+          }
         } else {
           setError("Google login failed. Please try again.");
         }
