@@ -12,7 +12,7 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const { login, user, isAdmin, loginWithGoogle } = useAuth();
+  const { login, user, isAdmin } = useAuth();
   const router = useRouter();
 
   // Redirect if already logged in
