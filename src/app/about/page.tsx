@@ -85,10 +85,14 @@ export default function About() {
                 </div>
                 
                 <div className="team-member-card">
-                  <div className="profile-image-container placeholder">
-                    <div className="profile-placeholder">
-                      <span>A</span>
-                    </div>
+                  <div className="profile-image-container">
+                    <Image
+                      src="/images/about/adi_profile.jpg"
+                      alt="Adi Cahal"
+                      width={100}
+                      height={100}
+                      className="profile-image"
+                    />
                   </div>
                   <h3 className="member-name">Adi Cahal</h3>
                   <p className="member-role">The Pantry Keeper</p>

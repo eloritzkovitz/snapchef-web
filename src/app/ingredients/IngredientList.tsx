@@ -174,9 +174,10 @@ const IngredientList: React.FC = () => {
     <div className="p-6 bg-white shadow-md rounded-lg">
       <div className="flex items-center mb-4">
         {/* Header */}
-        <Link href="/" className="mr-2 text-black flex items-center">
+        <Link href="/admin/dashboard" className="mr-2 text-black flex items-center">
           <ArrowLeftIcon className="h-5 w-5" />
         </Link>
+
         <h1 className="text-2xl font-bold">View Ingredients</h1>
       </div>
 

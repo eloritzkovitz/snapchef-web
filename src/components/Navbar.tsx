@@ -69,8 +69,8 @@ export default function Navbar() {
                     <div className="flex items-center space-x-2">
                       {user.profilePicture ? (
                         <img
-                          src={user.profilePicture}
-                          alt="Profile"
+                           src={user?.profilePicture ? user.profilePicture : "/images/placeholder.png"}
+                           alt="Profile"
                           className="w-8 h-8 rounded-full border-2 border-white"
                         />
                       ) : (

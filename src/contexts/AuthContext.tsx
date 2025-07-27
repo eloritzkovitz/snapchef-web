@@ -19,6 +19,7 @@ interface AuthContextType {
   logout: () => void;
   loading: boolean;
   isAdmin: boolean;
+  loginWithToken: (token: string) => Promise<void>; 
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -100,6 +101,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };  
 
+  // Login with token (for Google OAuth)”
+const loginWithToken = async (accessToken: string): Promise<void> => {
+  localStorage.setItem('accessToken', accessToken);
+  await fetchUserData(accessToken);
+};
+
+
+
   // Logout
   const logout = () => {
     localStorage.removeItem('accessToken');
@@ -113,6 +122,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     logout,
     loading,
     isAdmin,
+    loginWithToken,
   };
 
   return (
