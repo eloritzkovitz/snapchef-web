@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import './AboutCarousel.css';
 
-// Type definitions
 interface AppScreenshot {
   id: number;
   title: string;
@@ -13,7 +12,6 @@ interface AppScreenshot {
   thumbnail: string;
 }
 
-// חיצי הניווט
 const ChevronLeft = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="15 18 9 12 15 6"></polyline>
@@ -26,35 +24,90 @@ const ChevronRight = () => (
   </svg>
 );
 
-// About Carousel Component
 const appScreenshots: AppScreenshot[] = [
   {
     id: 1,
-    title: "Secure Login",
-    description: "Quick and secure authentication to protect your data",
-    image: "/images/screenshots/login_screen.jpg",
-    thumbnail: "Login"
+    title: "Home",
+    description: "Navigate easily between features using the bottom menu.",
+    image: "/images/screenshots/1home.png",
+    thumbnail: "Home"
   },
   {
     id: 2,
-    title: "Personal Profile",
-    description: "Manage your preferences and dietary requirements",
-    image: "/images/screenshots/profile_screen.jpg",
-    thumbnail: "Profile"
-  },
-  {
-    id: 3,
-    title: "Fridge Management",
-    description: "Track your ingredients easily with our intuitive interface",
-    image: "/images/screenshots/fridge_screen_1.jpg",
+    title: "Fridge",
+    description: "View and manage ingredients you already have at home.",
+    image: "/images/screenshots/2fridge.png",
     thumbnail: "Fridge"
   },
   {
+    id: 3,
+    title: "Ingredient Search",
+    description: "Look up ingredients and add them to your fridge.",
+    image: "/images/screenshots/3ingredientSearch.png",
+    thumbnail: "Search"
+  },
+  {
     id: 4,
-    title: "Clean Interface", 
-    description: "Enjoy our minimalist design that puts functionality first",
-    image: "/images/screenshots/fridge_screen_2.jpg",
-    thumbnail: "Interface"
+    title: "Grocery List",
+    description: "Automatically track ingredients you need to purchase.",
+    image: "/images/screenshots/4groceries.png",
+    thumbnail: "Groceries"
+  },
+  {
+    id: 5,
+    title: "Reminders",
+    description: "Set alerts for expiring ingredients so nothing goes to waste.",
+    image: "/images/screenshots/5setReminder.png",
+    thumbnail: "Reminders"
+  },
+  {
+    id: 6,
+    title: "Cookbook",
+    description: "Save and manage your favorite recipes in one place.",
+    image: "/images/screenshots/6cookbook.png",
+    thumbnail: "Cookbook"
+  },
+  {
+    id: 7,
+    title: "AI Recipe Generator",
+    description: "Create recipes using ingredients from your fridge.",
+    image: "/images/screenshots/7generateRecipe.png",
+    thumbnail: "AI"
+  },
+  {
+    id: 8,
+    title: "Add Recipe",
+    description: "Manually add your favorite recipes to the cookbook.",
+    image: "/images/screenshots/8addRecipe.png",
+    thumbnail: "Add"
+  },
+  {
+    id: 9,
+    title: "View Recipe",
+    description: "Get full instructions and ingredients for any saved recipe.",
+    image: "/images/screenshots/9viewRecipe.png",
+    thumbnail: "View"
+  },
+  {
+    id: 10,
+    title: "Profile",
+    description: "View your profile details and app usage.",
+    image: "/images/screenshots/10profile.png",
+    thumbnail: "Profile"
+  },
+  {
+    id: 11,
+    title: "Friends",
+    description: "Add friends to share recipes and explore what others cook.",
+    image: "/images/screenshots/11friends.png",
+    thumbnail: "Friends"
+  },
+  {
+    id: 12,
+    title: "Notifications",
+    description: "Stay updated when your friends connect with you.",
+    image: "/images/screenshots/12notifications.png",
+    thumbnail: "Alerts"
   }
 ];
 
@@ -62,75 +115,52 @@ export default function AboutCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  
-  // Auto-advance carousel every 5 seconds
+
   useEffect(() => {
     if (isPaused) return;
-    
     const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % appScreenshots.length);
+      setActiveIndex((prev) => (prev + 1) % appScreenshots.length);
     }, 5000);
-    
     return () => clearInterval(interval);
   }, [isPaused]);
-  
+
   const nextSlide = () => {
     if (isAnimating) return;
-    
     setIsAnimating(true);
-    setActiveIndex((prevIndex) => (prevIndex + 1) % appScreenshots.length);
-    
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 500);
+    setActiveIndex((prev) => (prev + 1) % appScreenshots.length);
+    setTimeout(() => setIsAnimating(false), 500);
   };
-  
+
   const prevSlide = () => {
     if (isAnimating) return;
-    
     setIsAnimating(true);
-    setActiveIndex((prevIndex) => (prevIndex - 1 + appScreenshots.length) % appScreenshots.length);
-    
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 500);
+    setActiveIndex((prev) => (prev - 1 + appScreenshots.length) % appScreenshots.length);
+    setTimeout(() => setIsAnimating(false), 500);
   };
-  
+
   const goToSlide = (index: number) => {
     if (isAnimating || index === activeIndex) return;
-    
     setIsAnimating(true);
     setActiveIndex(index);
-    
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 500);
+    setTimeout(() => setIsAnimating(false), 500);
   };
-  
-  const currentScreenshot = appScreenshots[activeIndex];
-  
+
+  const current = appScreenshots[activeIndex];
+
   return (
-    <div 
-      className="about-carousel"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <div className="about-carousel" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
       <div className="about-carousel-container">
-        <button 
-          className="about-carousel-arrow about-carousel-arrow-left" 
-          onClick={prevSlide}
-          aria-label="Previous screenshot"
-        >
+        <button className="about-carousel-arrow about-carousel-arrow-left" onClick={prevSlide}>
           <ChevronLeft />
         </button>
-        
+
         <div className="about-carousel-content">
           <div className={`about-carousel-item ${isAnimating ? 'animating' : ''}`}>
             <div className="about-screenshot-container">
               <div className="about-screenshot-frame">
-                <Image 
-                  src={currentScreenshot.image} 
-                  alt={currentScreenshot.title}
+                <Image
+                  src={current.image}
+                  alt={current.title}
                   width={200}
                   height={400}
                   className="about-screenshot-image"
@@ -139,67 +169,54 @@ export default function AboutCarousel() {
               </div>
             </div>
             <div className="about-screenshot-details">
-              <h3 className="about-screenshot-title">{currentScreenshot.title}</h3>
-              <p className="about-screenshot-description">{currentScreenshot.description}</p>
-              
-              {/* Screenshot indicator */}
+              <h3 className="about-screenshot-title">{current.title}</h3>
+              <p className="about-screenshot-description">{current.description}</p>
               <div className="about-screenshot-counter">
                 <span className="about-counter-text">
                   {activeIndex + 1} of {appScreenshots.length}
                 </span>
                 <div className="about-progress-bar">
-                  <div 
-                    className="about-progress-fill" 
-                    style={{ width: `${((activeIndex + 1) / appScreenshots.length) * 100}%` }}
-                  ></div>
+                  <div className="about-progress-fill" style={{ width: `${((activeIndex + 1) / appScreenshots.length) * 100}%` }}></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
-        <button 
-          className="about-carousel-arrow about-carousel-arrow-right" 
-          onClick={nextSlide}
-          aria-label="Next screenshot"
-        >
+
+        <button className="about-carousel-arrow about-carousel-arrow-right" onClick={nextSlide}>
           <ChevronRight />
         </button>
       </div>
-      
-      {/* Thumbnail navigation */}
+
       <div className="about-carousel-thumbnails-container">
         <div className="about-carousel-thumbnails">
-          {appScreenshots.map((screenshot, index) => (
+          {appScreenshots.map((s, i) => (
             <button
-              key={screenshot.id}
-              className={`about-carousel-thumbnail ${index === activeIndex ? 'active' : ''}`}
-              onClick={() => goToSlide(index)}
-              aria-label={`Go to screenshot ${index + 1}: ${screenshot.title}`}
+              key={s.id}
+              className={`about-carousel-thumbnail ${i === activeIndex ? 'active' : ''}`}
+              onClick={() => goToSlide(i)}
             >
               <div className="about-thumbnail-wrapper">
-                <Image 
-                  src={screenshot.image}
-                  alt={`Thumbnail for ${screenshot.title}`}
+                <Image
+                  src={s.image}
+                  alt={`Thumbnail for ${s.title}`}
                   width={40}
                   height={80}
                   className="about-thumbnail-image"
                 />
               </div>
-              <span className="about-thumbnail-title">{screenshot.thumbnail}</span>
+              <span className="about-thumbnail-title">{s.thumbnail}</span>
             </button>
           ))}
         </div>
       </div>
-      
-      {/* Indicators for small screens */}
+
       <div className="about-carousel-dots">
-        {appScreenshots.map((_, index) => (
+        {appScreenshots.map((_, i) => (
           <button
-            key={index}
-            className={`about-carousel-dot ${index === activeIndex ? 'active' : ''}`}
-            onClick={() => goToSlide(index)}
-            aria-label={`Go to slide ${index + 1}`}
+            key={i}
+            className={`about-carousel-dot ${i === activeIndex ? 'active' : ''}`}
+            onClick={() => goToSlide(i)}
           />
         ))}
       </div>

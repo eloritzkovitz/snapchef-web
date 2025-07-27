@@ -12,7 +12,7 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const { login, user, isAdmin } = useAuth();
+  const { login, user, isAdmin, loginWithToken } = useAuth();
   const router = useRouter();
 
   // Redirect if already logged in
@@ -34,10 +34,8 @@ export default function LoginPage() {
 
     try {
       const success = await login(email, password);
-
-      if (success) {
-        // The useEffect above will handle redirection
-      } else {
+      // redirect יתבצע ע"י useEffect
+      if (!success) {
         setError("Invalid email or password");
       }
     } catch {
@@ -45,21 +43,6 @@ export default function LoginPage() {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  // Fetch user data to check role
-  const fetchUserData = async (accessToken: string) => {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/users/me`,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    if (!res.ok) throw new Error("Failed to fetch user data");
-    return res.json();
   };
 
   // Handle Google response
@@ -83,15 +66,10 @@ export default function LoginPage() {
           localStorage.setItem("accessToken", data.accessToken);
           localStorage.setItem("refreshToken", data.refreshToken);
 
-          // Fetch user data to check role
-          const userData = await fetchUserData(data.accessToken);
+          // 👇 החלק החשוב: לעדכן את ה־AuthContext
+          await loginWithToken(data.accessToken);
 
-          // Redirect based on role
-          if (userData.role === "admin") {
-            router.push("/admin/dashboard");
-          } else {
-            router.push("/");
-          }
+          // ✅ אין צורך ב־redirect כאן – זה יתבצע ב־useEffect לפי ה־context
         } else {
           setError("Google login failed. Please try again.");
         }
@@ -103,7 +81,6 @@ export default function LoginPage() {
     }
   };
 
-  // Handle Google login error
   const handleGoogleError = () => {
     setError("Google login failed. Please try again.");
     setIsLoading(false);
