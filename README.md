@@ -2,7 +2,7 @@
 
 The SnapChef Web App is a website for the SnapChef application, built with React, TypeScript and Next.js. This project is meant to show information about the app, the development team and more, as well as providing an admin dashboard interface for admins.
 
-# Features
+## Features
 
 - **Project Showcase:** Shows information about our final project for the full-stack development internship.
 - **Admin Dashboard:** Management tool for admins is available through the website.
