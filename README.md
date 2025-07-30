@@ -16,4 +16,4 @@ The SnapChef Web App is a website for the SnapChef application, built with React
 - **Admin Dashboard:** Accounts with admin permissions can log in and view the admin dashboard, with management tools.
 
 ## Deployment
-The application was deployed to the [Vercel Platform](https://vercel.com)
+The application was deployed to the [Vercel Platform](https://vercel.com).
