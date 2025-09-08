@@ -12,15 +12,15 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="navbar p-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <nav className="navbar p-4 w-full">
+       <div className="w-full flex justify-between items-center px-4">
         {/* Logo and Brand */}
         <AppLink
           href="/"
           className="flex items-center space-x-3 font-berlin"
         >
           <Image
-            src="/images/icon.png"
+            src="/images/branding/icon.png"
             alt="SnapChef Logo"
             width={48}
             height={48}
@@ -30,7 +30,7 @@ export default function Navbar() {
         </AppLink>
 
         {/* Navigation Links */}
-        <ul className="flex space-x-6 font-berlin items-center">
+        <ul className="flex space-x-6 font-berlin items-center gap-8 mr-50">
           <li>
             <AppLink
               href="/api"
@@ -52,7 +52,7 @@ export default function Navbar() {
             <>
               {user ? (
                 <>
-                  {/* Admin Dashboard Link - ללא רקע אדום */}
+                  {/* Admin Dashboard Link*/}
                   {isAdmin && (
                     <li>
                       <AppLink
@@ -90,7 +90,7 @@ export default function Navbar() {
                       )}
                     </div>
                     
-                    {/* Logout Button - ללא רקע לבן */}
+                    {/* Logout Button*/}
                     <button
                       onClick={handleLogout}
                       className="hover:text-[#ffb89d] transition-colors font-medium underline"

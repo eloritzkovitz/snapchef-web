@@ -5,8 +5,7 @@ export const metadata = {
 
 import Image from 'next/image';
 import Link from 'next/link';
-import FeatureCarousel from '../components/FeatureCarousel';
-
+import Features from '../components/Features';
 
 export default function Home() {
   return (
@@ -41,25 +40,27 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="app-showcase md:w-1/2 flex justify-center">
-            <div className="phone-mockup">
+          <div className="md:w-1/2 flex justify-center">
+            <div className="border-4 border-black rounded-[2.5rem] bg-black p-2 flex items-center justify-center shadow-lg">
               <Image 
-                src="/images/scan_ing.png" 
+                src="/images/screenshots/main.gif" 
                 alt="SnapChef App" 
-                width={280} 
-                height={550} 
-                className="phone-image" 
+                width={260} 
+                height={540} 
+                className="rounded-[2rem] object-cover"
+                priority
+                style={{ width: "260px", height: "540px" }}
+                unoptimized
               />
             </div>
           </div>
         </div>
       </section>
       
-      {/* Features Section with Carousel */}
+      {/* Features Section */}
       <section className="features">
-        <div className="container">
-          <h2 className="features-heading">Our Features</h2>
-          <FeatureCarousel />
+        <div className="container">          
+          <Features />
         </div>
       </section>
     </div>

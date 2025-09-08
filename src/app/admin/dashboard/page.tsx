@@ -94,7 +94,7 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header */}
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,7 +102,7 @@ export default function AdminDashboard() {
             <div className="flex items-center">
               <img
                 className="h-8 w-8 mr-3"
-                src="/images/icon.png"
+                src="/images/branding/icon.png"
                 alt="SnapChef"
               />
               <h1 className="text-xl font-semibold text-gray-900">
